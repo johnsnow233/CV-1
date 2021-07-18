@@ -1,0 +1,21 @@
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$html = document.querySelector('#html');
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$style = document.querySelector('#style');
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$string = `\n/*你好，我是一名前端新人\n接下来我要画一个太极\n首先要准备一个div*/\n#div1{\n    width:200px;\n    height:200px;\n    border: 1px solid red;\n}\n/*接下画一个圆*/\n#div1{\n    border-radius:50%;\n    box-shadow: 0 0 3px rgba(0,0,0,0.5);\n    border:none;\n}\n\n/*太极是一阴一阳，即一黑一白*/\n#div1{\n    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(9,9,121,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);\n} \n/*加两个神奇的东西*/\n#div1::before{\n    width:100px;\n    height:100px;\n    top:0;\n    left:50%;\n    transform:translateX(-50%);\n    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n    border-radius:50%;\n}  \n#div1::after{\n    width:100px;\n    height:100px;\n    bottom:0;\n    left:50%;\n    transform:translateX(-50%);\n    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);\n    border-radius:50%;\n}                                                                                                                                 \n`;
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$n = 0;
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$string2 = '';
+let $16b5ad875ae907e2f7f79e7b8fe116cc$var$step = ()=>{
+    setTimeout(()=>{
+        if ($16b5ad875ae907e2f7f79e7b8fe116cc$var$string[$16b5ad875ae907e2f7f79e7b8fe116cc$var$n] === '\n') $16b5ad875ae907e2f7f79e7b8fe116cc$var$string2 += '<br>';
+        else if ($16b5ad875ae907e2f7f79e7b8fe116cc$var$string[$16b5ad875ae907e2f7f79e7b8fe116cc$var$n] === ' ') $16b5ad875ae907e2f7f79e7b8fe116cc$var$string2 += '&nbsp';
+        else $16b5ad875ae907e2f7f79e7b8fe116cc$var$string2 += $16b5ad875ae907e2f7f79e7b8fe116cc$var$string[$16b5ad875ae907e2f7f79e7b8fe116cc$var$n];
+        $16b5ad875ae907e2f7f79e7b8fe116cc$var$html.innerHTML = $16b5ad875ae907e2f7f79e7b8fe116cc$var$string2;
+        $16b5ad875ae907e2f7f79e7b8fe116cc$var$style.innerHTML = $16b5ad875ae907e2f7f79e7b8fe116cc$var$string.substring(0, $16b5ad875ae907e2f7f79e7b8fe116cc$var$n);
+        window.scrollTo(0, 9999);
+        $16b5ad875ae907e2f7f79e7b8fe116cc$var$html.scrollTo(0, 9999);
+        if ($16b5ad875ae907e2f7f79e7b8fe116cc$var$n < $16b5ad875ae907e2f7f79e7b8fe116cc$var$string.length - 1) {
+            $16b5ad875ae907e2f7f79e7b8fe116cc$var$n += 1;
+            $16b5ad875ae907e2f7f79e7b8fe116cc$var$step();
+        }
+    }, 10);
+};
+$16b5ad875ae907e2f7f79e7b8fe116cc$var$step();
