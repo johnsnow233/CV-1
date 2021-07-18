@@ -1,0 +1,43 @@
+*{margin: 0;padding: 0;}
+        *{box-sizing: border-box;}
+        ::after{box-sizing: border-box;} 
+        ::before{box-sizing: border-box;}
+        #html{
+            word-break: break-all;
+        }
+        #div1 {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #div1::before {
+            position: absolute;
+            content: '';
+            display: block;
+
+        }
+
+        #div1::after {
+            position: absolute;
+            content: '';
+            display: block;
+        }
+        @media(max-width:500px){
+            #html{
+                height: 50vh;
+                position: relative;
+
+                overflow: auto;
+            }
+            #div1Wrapper{
+                height: 50vh;
+            }
+            #div1{
+               
+                position: relative;
+                right: 0;
+                top: 0;
+            }
+        }
